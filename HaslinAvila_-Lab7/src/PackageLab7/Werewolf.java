@@ -10,8 +10,9 @@ public class Werewolf extends Bestias{
         super(nombre, nick, atk, def, HP, pts);
     }
     
-    public void Ataque() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void Ataque(Guerreros war) {
+        
+        
     }
 
     @Override

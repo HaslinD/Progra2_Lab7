@@ -45,8 +45,13 @@ public class Alumnos extends Guerreros{
     }
 
     @Override
-    public void Ataque(Guerreros warrior) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void Ataque(Guerreros war) {
+        double resta, vidaEnemigo, vidaWere, port;
+        resta = this.getAtk()-war.getDef();
+        vidaEnemigo = war.getHP() - resta;
+        war.setHP(vidaEnemigo);
+        port = this.getHP()*0.25;
+        
     }
 
     
