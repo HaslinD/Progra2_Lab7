@@ -7,7 +7,8 @@ public class Guerreros {
     private double def;
     private double HP;
     private double pts;
-
+    private static final long SerialVersionUID = 666L;
+    
     public Guerreros() {
     }
 
