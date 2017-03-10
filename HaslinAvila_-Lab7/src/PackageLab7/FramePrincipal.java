@@ -1,6 +1,11 @@
 package PackageLab7;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -1043,12 +1048,11 @@ public class FramePrincipal extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(144, Short.MAX_VALUE))
+                .addContainerGap(93, Short.MAX_VALUE))
         );
 
         Opciones.setText("Opciones");
 
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.SHIFT_MASK));
         jMenuItem1.setText("Guardar");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1103,7 +1107,7 @@ public class FramePrincipal extends javax.swing.JFrame {
             atk = Double.parseDouble(tf_Atk.getText());
             def = Double.parseDouble(tf_Def.getText());
             hp = Double.parseDouble(tf_HP.getText());
-            pts = Double.parseDouble(tf_Puntos.getText());
+            pts = 0;
             guerreros.add(new Dragon(nombre, nickname, atk, def, hp, pts));
             
             DefaultTableModel modelo = (DefaultTableModel) Table_Bestias.getModel();
@@ -1132,7 +1136,7 @@ public class FramePrincipal extends javax.swing.JFrame {
             atk = Double.parseDouble(tf_Atk1.getText());
             def = Double.parseDouble(tf_Def1.getText());
             hp = Double.parseDouble(tf_HP1.getText());
-            pts = Double.parseDouble(tf_Puntos1.getText());
+            pts = 0;
             guerreros.add(new Fenix(nombre, nickname, atk, def, hp, pts));
             
             DefaultTableModel modelo = (DefaultTableModel) Table_Bestias.getModel();
@@ -1161,7 +1165,7 @@ public class FramePrincipal extends javax.swing.JFrame {
             atk = Double.parseDouble(tf_Atk2.getText());
             def = Double.parseDouble(tf_Def2.getText());
             hp = Double.parseDouble(tf_HP2.getText());
-            pts = Double.parseDouble(tf_Puntos2.getText());
+            pts = 0;
             guerreros.add(new Werewolf(nombre, nickname, atk, def, hp, pts));
             
             DefaultTableModel modelo = (DefaultTableModel) Table_Bestias.getModel();
@@ -1190,7 +1194,7 @@ public class FramePrincipal extends javax.swing.JFrame {
             atk = Double.parseDouble(tf_Atk3.getText());
             def = Double.parseDouble(tf_Def3.getText());
             hp = Double.parseDouble(tf_HP3.getText());
-            pts = Double.parseDouble(tf_Puntos3.getText());
+            pts = 0;
             guerreros.add(new Minotauro(nombre, nickname, atk, def, hp, pts));
             
             DefaultTableModel modelo = (DefaultTableModel) Table_Bestias.getModel();
@@ -1220,7 +1224,7 @@ public class FramePrincipal extends javax.swing.JFrame {
             atk = Double.parseDouble(tf_Atk4.getText());
             def = Double.parseDouble(tf_Def4.getText());
             hp = Double.parseDouble(tf_HP4.getText());
-            pts = Double.parseDouble(tf_Puntos4.getText());
+            pts = 0;
             ncuenta = Integer.parseInt(tf_cuenta.getText());
             carrera = tf_carrera.getText();
             edad = Integer.parseInt(tf_edad.getText());
@@ -1231,6 +1235,7 @@ public class FramePrincipal extends javax.swing.JFrame {
             modelo.addRow(newrow);
             Table_Alumnos.setModel(modelo);
             JOptionPane.showMessageDialog(null, "Se Ha agregado Exitosamente");
+            
             
             tf_Nombre4.setText("");
             tf_Nickname4.setText("");
@@ -1301,7 +1306,7 @@ public class FramePrincipal extends javax.swing.JFrame {
         a.setAtk(atk);
         a.setDef(def);
         a.setHP(hp);
-        a.setPts(pts);
+        a.setPts(0);
         a.setNcuenta(ncuenta);
         a.setCarrera(carrera);
         a.setEdad(edad);
@@ -1327,13 +1332,13 @@ public class FramePrincipal extends javax.swing.JFrame {
         def = Double.parseDouble(tf_Def6.getText());
         hp = Double.parseDouble(tf_HP6.getText());
         pts = Double.parseDouble(tf_Puntos6.getText());
-        Guerreros g = new Guerreros();
+        Guerreros g = new Bestias();
         g.setNombre(nombre);
         g.setNick(nickname);
         g.setAtk(atk);
         g.setDef(def);
         g.setHP(hp);
-        g.setPts(pts);
+        g.setPts(0);
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
@@ -1355,11 +1360,19 @@ public class FramePrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_Eliminar1ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        AdminBestias bst = new AdminBestias("./Gatos.txt");
+        AdminBestias bst = new AdminBestias("./Bestias.cbm");
         for (int i = 0; i < guerreros.size(); i++) {
             bst.cargarArchivo();
-            bst.setBestias(((Guerreros)guerreros.get(i)));
+            bst.setBestias(((Bestias)guerreros.get(i)));
             bst.escribirArchivo();
+            Guardar(guerreros);
+        }
+        AdminAlumnos als = new AdminAlumnos("./Alumnos.cbm");
+        for (int i = 0; i < alumnos.size(); i++) {
+            als.cargarArchivo();
+            als.setAlumnos(((Alumnos)alumnos.get(i)));
+            als.escribirArchivo();
+            Guardar(alumnos);
         }
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
@@ -1542,4 +1555,14 @@ public class FramePrincipal extends javax.swing.JFrame {
     ArrayList guerreros = new ArrayList();
     ArrayList alumnos = new ArrayList();
     int cont;
+    
+    public void Guardar(ArrayList lista) {
+        try {
+            FileOutputStream archivotxt = new FileOutputStream("./Guerrero.cbm");
+            ObjectOutputStream oos = new ObjectOutputStream(archivotxt);
+            oos.writeObject(lista);
+            oos.close();
+        } catch (IOException ex) {
+        }
+    }
 }

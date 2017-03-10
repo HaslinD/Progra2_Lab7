@@ -1,6 +1,6 @@
 package PackageLab7;
 
-public abstract class Bestias extends Guerreros{
+public class Bestias extends Guerreros{
 
     public Bestias() {
     }
@@ -9,11 +9,13 @@ public abstract class Bestias extends Guerreros{
         super(nombre, nick, atk, def, HP, pts);
     }
     
-    public abstract void Ataque();
-
     @Override
     public String toString() {
         return "Bestias{" + '}';
+    }
+
+    @Override
+    public void Ataque(Guerreros warrior) {
     }
  
     

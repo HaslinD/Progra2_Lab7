@@ -10,7 +10,6 @@ public class Dragon extends Bestias{
         super(nombre, nick, atk, def, HP, pts);
     }
     
-    @Override
     public void Ataque() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

@@ -1,6 +1,6 @@
 package PackageLab7;
 
-public class Guerreros {
+public abstract class Guerreros {
     private String nombre;
     private String nick;
     private double atk;
@@ -74,5 +74,5 @@ public class Guerreros {
         return nombre;
     }
     
-    
+    public abstract void Ataque(Guerreros warrior);
 }

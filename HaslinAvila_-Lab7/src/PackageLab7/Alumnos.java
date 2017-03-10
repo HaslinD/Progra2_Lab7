@@ -43,6 +43,13 @@ public class Alumnos extends Guerreros{
     public String toString() {
         return super.toString()+"ncuenta=" + ncuenta + ", carrera=" + carrera + ", edad=" + edad;
     }
+
+    @Override
+    public void Ataque(Guerreros warrior) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    
     
     
 }

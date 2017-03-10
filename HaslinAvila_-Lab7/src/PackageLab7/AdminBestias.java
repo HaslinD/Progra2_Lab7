@@ -11,8 +11,7 @@ import javax.swing.tree.DefaultTreeModel;
 public class AdminBestias {
     private ArrayList<Guerreros> listaBestias = new ArrayList();
     private File archivo = null;
-    private
-    
+
     public AdminBestias() {
     }
 
@@ -88,7 +87,7 @@ public class AdminBestias {
                 hp = sc.nextDouble();
                 pts = sc.nextDouble();
                 
-                listaBestias.add(new Guerreros(nom, nick, atk, def, hp, pts));
+                listaBestias.add(new Bestias(nom, nick, atk, def, hp, pts));
             }
         } catch (Exception e) {
         } finally {
