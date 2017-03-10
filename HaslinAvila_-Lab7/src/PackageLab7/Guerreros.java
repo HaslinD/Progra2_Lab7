@@ -70,8 +70,7 @@ public class Guerreros {
 
     @Override
     public String toString() {
-        return "nombre=" + nombre + ", nick=" + nick + ", atk=" + atk + 
-                ", def=" + def + ", HP=" + HP + ", pts=" + pts;
+        return nombre;
     }
     
     

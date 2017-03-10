@@ -41,7 +41,7 @@ public class Alumnos extends Guerreros{
 
     @Override
     public String toString() {
-        return "ncuenta=" + ncuenta + ", carrera=" + carrera + ", edad=" + edad;
+        return super.toString()+"ncuenta=" + ncuenta + ", carrera=" + carrera + ", edad=" + edad;
     }
     
     

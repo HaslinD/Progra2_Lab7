@@ -5,6 +5,10 @@ public class Fenix extends Bestias{
     public Fenix() {
         super();
     }
+
+    public Fenix(String nombre, String nick, double atk, double def, double HP, double pts) {
+        super(nombre, nick, atk, def, HP, pts);
+    }
     
     @Override
     public void Ataque() {
@@ -13,7 +17,7 @@ public class Fenix extends Bestias{
 
     @Override
     public String toString() {
-        return "Fenix{" + '}';
+        return super.toString()+"Fenix{" + '}';
     }
     
     

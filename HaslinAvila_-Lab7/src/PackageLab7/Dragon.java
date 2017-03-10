@@ -5,6 +5,10 @@ public class Dragon extends Bestias{
     public Dragon() {
         super();
     }
+
+    public Dragon(String nombre, String nick, double atk, double def, double HP, double pts) {
+        super(nombre, nick, atk, def, HP, pts);
+    }
     
     @Override
     public void Ataque() {
@@ -13,7 +17,7 @@ public class Dragon extends Bestias{
 
     @Override
     public String toString() {
-        return "Dragon{" + '}';
+        return super.toString()+"Dragon{" + '}';
     }
     
     

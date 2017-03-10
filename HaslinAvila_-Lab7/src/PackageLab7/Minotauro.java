@@ -5,6 +5,10 @@ public class Minotauro extends Bestias{
     public Minotauro() {
         super();
     }
+
+    public Minotauro(String nombre, String nick, double atk, double def, double HP, double pts) {
+        super(nombre, nick, atk, def, HP, pts);
+    }
     
     @Override
     public void Ataque() {
@@ -13,7 +17,7 @@ public class Minotauro extends Bestias{
 
     @Override
     public String toString() {
-        return "Minotauro{" + '}';
+        return super.toString()+"Minotauro{" + '}';
     }
     
 }

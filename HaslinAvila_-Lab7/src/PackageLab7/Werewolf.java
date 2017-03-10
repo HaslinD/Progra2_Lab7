@@ -5,6 +5,10 @@ public class Werewolf extends Bestias{
     public Werewolf() {
         super();
     }
+
+    public Werewolf(String nombre, String nick, double atk, double def, double HP, double pts) {
+        super(nombre, nick, atk, def, HP, pts);
+    }
     
     @Override
     public void Ataque() {
@@ -13,7 +17,7 @@ public class Werewolf extends Bestias{
 
     @Override
     public String toString() {
-        return "Werewolf{" + '}';
+        return super.toString()+"Werewolf{" + '}';
     }
     
     
